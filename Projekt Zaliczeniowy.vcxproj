@@ -37,6 +37,7 @@
     <ProjectGuid>{ec37674f-7fc3-4285-9be8-de9e1f0f3a27}</ProjectGuid>
     <RootNamespace>ProjektZaliczeniowy</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Symulacja_glebi_ostrosci</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
