@@ -75,6 +75,7 @@ void dof::ApplyBlur(wxImage& img)
             int radius = (int)(f * maxR);
             if (radius < 1)
                 continue; // piksel ostry – bez zmian
+            
 
             int count = 0;
             int sumR = 0, sumG = 0, sumB = 0;
