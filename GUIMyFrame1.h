@@ -33,8 +33,16 @@ class GUIMyFrame1 : public MyFrame1
 		void m_radioBtn3_selected(wxCommandEvent& event);
 		void m_scroll_rozmycie_upadate(wxScrollEvent& event);
 		void m_button3_click(wxCommandEvent& event);
-		void m_button4_click(wxCommandEvent& event);
+		void m_menuItem8_selected(wxCommandEvent& event);
+		void m_toggleBtn_rysuj_toogled(wxCommandEvent& event);
+		void m_toggle_button_gumka_toggled(wxCommandEvent& event);
+		void m_slider_rozmiarRys_update(wxScrollEvent& event);
+		void m_slider_poziomNalozenia_update(wxScrollEvent& event);
+		void m_color1_changed(wxColourPickerEvent& event);
 
+		void OnMouseMove(wxMouseEvent& evt);
+		void OnMouseDown(wxMouseEvent& evt);
+		void OnMouseUp(wxMouseEvent& evt);
 
 	public:
 		/** Constructor */

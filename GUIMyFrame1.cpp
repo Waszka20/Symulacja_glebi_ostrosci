@@ -9,6 +9,7 @@ MyFrame1( parent )
 {
  //https://r12a.github.io/apps/conversion/ -> JavaScript
  cfg = std::make_shared<ConfigClass>(this);
+
  UpdateControls();
 
 }
@@ -123,13 +124,7 @@ void GUIMyFrame1::m_button3_click(wxCommandEvent& event)
     
     wxMessageBox("Zapisano pomyślnie!", "OK");
 }
-void GUIMyFrame1::m_button4_click(wxCommandEvent& event) {
-    int w, h;
-    WxPanel->GetSize(&w, &h);
 
-    
-
-}
 void GUIMyFrame1::m_radioBtn1_selected(wxCommandEvent& event) {
     cfg->selected_view = 0;
 }
@@ -144,7 +139,42 @@ void GUIMyFrame1::m_scroll_rozmycie_upadate(wxScrollEvent& event) {
     cfg->blur_strenght = m_slider1->GetValue();
 
 }
-
+void GUIMyFrame1::m_menuItem8_selected(wxCommandEvent& event) {
+    if (cfg->overlap_image == false) {
+        cfg->overlap_image = true;
+    }
+    else {
+        cfg->overlap_image = false;
+    }
+}
+void GUIMyFrame1::m_toggleBtn_rysuj_toogled(wxCommandEvent& event) {
+    if(m_toggleBtn11->GetValue() == true){
+        cfg->draw_status = 1;
+        m_toggleBtn12->SetValue(false);
+    }
+    else {
+        cfg->draw_status = 0;
+    }
+}
+void GUIMyFrame1::m_toggle_button_gumka_toggled(wxCommandEvent& event) {
+    if (m_toggleBtn12->GetValue() == true) {
+        cfg->draw_status = 2;
+        m_toggleBtn11->SetValue(false);
+    }
+    else {
+        cfg->draw_status = 0;
+    }
+}
+void GUIMyFrame1::m_slider_rozmiarRys_update(wxScrollEvent& event) {
+    cfg->rozmiarRys = m_slider4->GetValue();
+}
+void GUIMyFrame1::m_slider_poziomNalozenia_update(wxScrollEvent& event) {
+    cfg->overlapLevel = m_slider5->GetValue();
+}
+void GUIMyFrame1::m_color1_changed(wxColourPickerEvent& event) {
+    cfg->color1 = m_colourPicker2->GetColour();
+    m_colourPicker2->SetColour(m_colourPicker2->GetColour());
+}
 
 GUIMyFrame1::~GUIMyFrame1()
 {
@@ -190,4 +220,16 @@ void GUIMyFrame1::UpdateControls()
     
     
     
+}
+
+
+void GUIMyFrame1::OnMouseMove(wxMouseEvent& evt) {
+    cfg->mouse_pos = evt.GetPosition();
+}
+void GUIMyFrame1::OnMouseDown(wxMouseEvent& evt) {
+    cfg->mouseDown = true;
+    cfg->clickPos = evt.GetPosition();
+}
+void GUIMyFrame1::OnMouseUp(wxMouseEvent& evt) {
+    cfg->mouseDown = false;
 }
